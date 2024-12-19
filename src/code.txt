@@ -1,0 +1,150 @@
+import "./App.css";
+
+function App() {
+  return (
+    <div className="flex">
+      <div className={"w-72 h-screen bg-red-500"}>
+        SideBar
+        <div className=" p-10 ">
+          <img
+            src="https://helakuru.sgp1.cdn.digitaloceanspaces.com/esana/images/lib/arrested-2[1].jpg"
+            alt=""
+            className={"cursor-pointer duration-500 rounded-lg"}
+          />
+        </div>
+      </div>
+
+      <div className="right-container p-7 text-2xl font-semibold flex-1 h-screen grid grid-cols-[max-content_1fr] gap-x-4  bg-teal-50">
+        <div className="bg-yellow-100 ">
+          <img
+            src="https://helakuru.sgp1.cdn.digitaloceanspaces.com/esana/images/lib/arrested-2[1].jpg"
+            alt=""
+            className={"cursor-pointer rounded-lg w-80 h-38"}
+          />
+
+        </div>
+        <div className="">
+          <h1 className="title font-emanee  w-auto h-auto text-3xl">
+            කථානායකට එරෙහිව විශ්වාසභංගයක් ගෙන ඒමට බලාපොරොත්තු වෙනවා
+          </h1>
+          <span className="news_time text-slate-400 font-bindumathi">
+            දෙසැ 12 පෙ.ව. 9:55
+          </span>
+
+          {/* <div className="social-icons p-10">
+            <img src="/src/assets/facebook.png" alt="facebook image" />
+            <img src="/src/assets/facebook.png" alt="whatsapp image" />
+            <img src="src/assets/images/twitter.png" alt="twitter image" />
+          </div> */}
+         
+          <p className="text-base font-normal leading-6 text-gray">
+            ශ්‍රී ලංකා විදේශ සේවා නියුක්ති කාර්යාංශයේ ලියාපදිංචි වී විදේශ රැකියා
+            සදහා ගොස් සිටින ශ්‍රමිකයන්ගේ දූදරුවන් සදහා වන රටවිරු දූදරු
+            ශිෂ්‍යත්වය සඳහා අයදුම් කිරීමට ලබාදුන් කාලය ලබන 31 වනදායින් අවසන්
+            වනවා. මෙම විගමනික ශ්‍රී ලාංකිකයන්ගේ දරුවන් රට විරු දූදරු ශිෂ්‍යත්ව
+            සඳහා අයදුම් කිරීමට උනන්දු කරන ලෙස ශ්‍රී ලංකා විදේශ සේවා නියුක්ති
+            කාර්යාංශය විදුහල්පතිවරුන්ගෙන් ඉල්ලා සිටිනවා. 05 ශ්‍රේණිය ශිෂ්‍යත්වය
+            සමත් දරුවන්ට රුපියල් 25,000 ක් පිරිනැමෙන අතර විගමනි​ක සේවකයන්ගේ
+            සාමාන්‍ය පෙළ සමත් දරුවන්ට රුපියල් 30,000 බැගින් පිරිනැමෙනවා. එසේම
+            විශ්වවිද්‍යාල සුදුසුකම් ලැබූ හෝ වෙනත් පාඨමාලා හා කාර්මික විද්‍යාල
+            සදහා සුදුසුකම් ලැබූ දරුවන්ට රුපියල් 40,000 බැගින් පිරිනැමෙන බවයි
+            සඳහන් වන්නේ.
+          </p>
+        
+          
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+import React from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+
+function App() {
+  return (
+    <div className="flex min-h-screen">
+      {/* Sidebar */}
+      <div className="w-72 bg-red-500 min-h-screen flex flex-col">
+        <div className="p-4">
+          <img src="/api/placeholder/280/100" alt="Logo" className="mb-4" />
+        </div>
+        <div className="flex-1 overflow-y-auto">
+          <div className="p-4 space-y-4">
+            <div className="bg-white/10 p-3 rounded-lg text-white">Top News</div>
+            {/* Sample news items */}
+            {[1, 2, 3, 4, 5].map((item) => (
+              <div key={item} className="bg-white/5 p-3 rounded-lg text-white cursor-pointer hover:bg-white/20">
+                News Item {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 p-4 bg-white overflow-y-auto">
+        <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row gap-6">
+  {/* Main Article Image */}
+  <div className="lg:w-96 w-full">
+    <img
+      src="https://helakuru.sgp1.cdn.digitaloceanspaces.com/esana/images/lib/arrested-2[1].jpg"
+      alt=""
+      className="rounded-lg w-full object-cover"
+    />
+  </div>
+
+  {/* Article Content */}
+  <div className="flex-1 flex flex-col">
+    {/* Title and Metadata */}
+    <div>
+      <h1 className="text-2xl font-bold mb-2">
+        ගොවීන්ට හෙක්ටයාරයක් සඳහා රුපියල් ලක්ෂයක පූර්ණ වන්දියක් ලබාදීමට රජය බැඳලා ඉන්නවා - නාමල් කරුණාරත්න
+      </h1>
+
+      <div className="flex items-center space-x-2 text-gray-500 mb-4">
+        <span className="text-sm">පෙ.ව. 12 පෙ.ව. 11:57</span>
+      </div>
+
+      {/* Social Share Buttons */}
+      <div className="flex space-x-3 mb-6">
+        <button className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
+          <span className="text-white text-sm">f</span>
+        </button>
+        <button className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">
+          <span className="text-white text-sm">w</span>
+        </button>
+        <button className="w-8 h-8 rounded-full bg-blue-400 flex items-center justify-center">
+          <span className="text-white text-sm">t</span>
+        </button>
+      </div>
+    </div>
+
+    {/* Article Text */}
+    <div className="prose max-w-none lg:mt-6">
+      <p className="text-base leading-relaxed text-gray-700 whitespace-pre-line">
+        ගොවීන්ට සිදු වූ වගා හානිය වෙනුවෙන් හෙක්ටයාරයක් සඳහා රුපියල් ලක්ෂයක පූර්ණ වන්දි මුදලක් ලබාදීමට ආණ්ඩුව පියවර ගන්නා බව නාමල් කරුණාරත්න පවසනවා.
+        ඒ අනුව වගා බිම් සහස්තර ගතකිම සඳහා ගොවි ජනතාට වෙන ප්‍රදේශයේ රජය ආසන්නයෙන්ම සහාය ලබාගැනීමට ද අවස්ථාව සපයා දී ඇති බවයි මාධ්‍ය වෙත දන්වා සිටියේ.
+        ආපදාවලට ලක්ව ගොවිබිම් සහ පිවිතුරට පත්ව ගොවි පවුල් ප්‍රමාණය පිළිබඳව සිදුලෙන මේ වනවිට තක්සේරු කරමින් පවතින බවද ඔහු සඳහන් කළේ.
+        හානි වූන වගාබිම්වලට ගොවීන්ට හෙක්ටයාරයක් සඳහා රුපියල් ලක්ෂයක පූර්ණ වන්දියක් ලබාදීමට රජය බැඳී සිටින බවත්,
+        එම යුතුකම අනිවාර්යයෙන්ම ඉටු කිරීමට බැඳී සිටින බවයි නියෝජ්‍ය අමාත්‍යවරයා වැඩිදුරටත් ප්‍රකාශ කළේ.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;

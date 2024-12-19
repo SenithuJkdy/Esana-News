@@ -1,0 +1,22 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'fmEmanee';
+  src: url('./assets/fonts/fmEmanee.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'fmBindumathi';
+  src: url('./assets/fonts/FMBindumathi.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

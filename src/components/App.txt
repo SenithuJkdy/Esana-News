@@ -1,0 +1,115 @@
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import './App.css'
+
+function App() {
+  return (
+    <div className="container-fluid bg-red-100 p-4">
+    <div className="row">
+      {/* Left Sidebar */}
+      <div className="col-lg-4 col-xl-4">
+        <div className="bg-white rounded-lg shadow-sm p-4">
+          {/* Header */}
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-6 h-6 bg-gray-200 rounded-full"></div>
+            <h3 className="text-lg font-semibold m-0">Top News</h3>
+          </div>
+  
+          {/* News Categories */}
+          <div className="flex gap-4 border-b mb-4" style={{}}>
+            <button className="px-3 py-2 text-red-500 border-b-2 border-red-500">All</button>
+            <button className="px-3 py-2 text-gray-500">සිදුවීම</button>
+            <button className="px-3 py-2 text-gray-500">හදිසි</button>
+            <button className="px-3 py-2 text-gray-500">නිවේදන</button>
+          </div>
+  
+          {/* News Items */}
+          <div className="space-y-4" style={{ height: '300px', overflowY: 'scroll' }}>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
+              <div key={item} className="flex gap-3">
+                <div className="w-1/3">
+                  <img
+                    src="https://helakuru.sgp1.cdn.digitaloceanspaces.com/esana/images/lib/anura-president-india-visit-day1.jpg"
+                    alt="news"
+                    className="w-full object-cover rounded-lg"
+                    style={{ width: '220px', height: '70px' }}
+                  />
+                </div>
+                <div className="w-2/3">
+                  <p className="text-sm font-medium mb-2 line-clamp-3">
+                    කර ආණ්ඩුවක් භාරදී මාස එකහමාරකින් හාල්වලට
+                  </p>
+                  <div className="flex items-center gap-1 text-gray-500">
+                    <span className="text-xs">4h</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+  
+      {/* Main Content */}
+      <div className="col-lg-8 col-xl-8">
+        <div className="bg-white rounded-lg shadow-sm p-4">
+          {/* Main Content Flex Container */}
+          <div className="flex gap-4 mb-4">
+            {/* Image */}
+            <div className="w-1/3">
+              <img
+                src="https://helakuru.sgp1.cdn.digitaloceanspaces.com/esana/images/lib/tharka-ttr.jpg"
+                alt="main news"
+                className="w-full rounded-lg"
+              />
+            </div>
+            
+            {/* Title and Meta */}
+            <div className="w-2/3">
+              <h1 className="text-3xl font-bold mb-4">
+                ගොවින්ට හෙක්ටයාරයක් සඳහා රුපියල් ලක්ෂයක පූර්ණ වන්දියක් ලබාදීමට රජය බැඳිලා ඉන්නවා - නාමල් කරුණාරත්න
+              </h1>
+              
+              {/* Time and Social Share */}
+              <div className="flex items-left gap-2 flex-col text-gray-500">
+                <span className="text-sm">දෙසැ. 12 පෙ.ව. 11:57</span>
+               
+                {/* Social Share Buttons */}
+                <div className="flex gap-2 mt-4">
+                  <button className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                    <span className="text-white text-sm">f</span>
+                  </button>
+                  <button className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-sm">w</span>
+                  </button>
+                  <button className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center">
+                    <span className="text-white text-sm">t</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p>ඉන්දියාවේ තෙදින නිල සංචාරයක නිරත ජනාධිපති අනුර කුමාර දිසානායක ඊයේ (15)  ඉන්දීය මුදල් හා ආයතනික කටයුතු පිළිබඳ අමාත්‍ය නිර්මලා සීතා රාමන්, විදේශ කටයුතු අමාත්‍ය ආචාර්ය එස්. ජයිශංකර් සහ ඉන්දියාවේ ජාතික ආරක්ෂක උපදේශක ශ්‍රී අජිත් දොවාල් හමුවී තිබෙනවා.
+
+ඉන්දු - ශ්‍රී ලංකා ආර්ථික සහයෝගීතාව ඉහළ නංවා ගැනීම මෙන්ම දෙරට අතර ආයෝජන අවස්ථා පුළුල් කරගැනීම පිළිබඳව ජනාධිපතිවරයා සහ ඉන්දීය මුදල් හා ආයතනික කටයුතු පිළිබඳ අමාත්‍ය නිර්මලා සීතා රාමන් මහත්මිය අතර පැවති හමුවේදී පුළුල් ලෙස සාකච්ඡා කෙරුණු බවයි ජනාධිපති මාධ්‍ය අංශය සඳහන් කළේ.
+
+ජනාධිපති අනුර කුමාර දිසානායක සහ විදේශ කටයුතු අමාත්‍ය ආචාර්ය එස්.ජයිශංකර් අතර හමුව ඉතා සුහදශීලි ලෙස පැවැත්වුණු අතර ශ්‍රී ලංකාවේ ආර්ථික පුනරුදය ඇති කිරීම සඳහා ඉන්දියාවේ දැවැන්ත වෙළඳපොළ ප්‍රයෝජනයට ගැනීමේ හැකියාව පිළිබඳව එහිදී අවධානයට ලක් කර ඇති බවයි සඳහන් වෙන්නේ.
+
+මෙරට සංචාරක, ආයෝජන සහ බලශක්ති ක්ෂේත්‍ර සඳහා සහාය දැක්වීමට ඉන්දියානු රජය එකඟතාවය පළ කරන බවද ආචාර්ය එස්.ජයිශංකර් මෙහිදී ප්‍රකාශ කර තිබෙනවා.
+
+ඉන් අනතුරුව ඉන්දියාවේ ජාතික ආරක්ෂක උපදේශක ශ්‍රී අජිත් දොවාල්‍, ජනාධිපති අනුර කුමාර දිසානායක හමුවී කලාපීය ආරක්ෂාව පිළිබඳ සාකච්ඡාවකට එක්වී ඇති බවයි වැඩිදුරටත් සඳහන් වෙන්නේ.
+
+අදාළ නිවේදනය පහතින්. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  );
+}
+{
+  /* <div className="py-2 news_row_esena pointer">Hii</div> */
+}
+
+export default App;

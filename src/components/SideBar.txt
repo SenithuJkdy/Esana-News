@@ -1,0 +1,48 @@
+import React from 'react'
+import { useState,useEffect } from 'react';
+
+function NewsWrapper() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const apiCall = async () => {
+      console.log("API call running");
+      const res = await fetch(`http://127.0.0.1:5000/esana/news`);
+      const data = await res.json();
+
+      if (data) {
+        setData(data); // Update the state with fetched data
+      }
+    };
+
+    apiCall(); // Make the API call when the component is mounted
+
+  }, []); // Empty dependency array means this will run only once on mount
+
+  useEffect(() => {
+    console.log("Data after update:", data); // Log the data after state update
+  }, [data]); // This will run when `data` is updated
+
+  return (
+  data.map((item, key) => {
+    return (
+      <div key={key} className='flex flex-row mt-10 ml-5'>
+        <div className='basis-3/4  '>
+        <div className='grid grid-cols-2 '>
+        <img src={item.image} className='max-w-sm'/>
+        <h2 className='pl-4'>{item.title}</h2>
+        </div>
+        <p>{item.time}</p>
+        {/* <p>{item.description}</p>
+        <p>{item.audio}</p>
+        <p>{item.audio_status}</p>
+        
+        <p>{item.id}</p> */}
+        <br />
+        </div>
+      </div>
+    );
+  })
+);
+}
+
+export default NewsWrapper
