@@ -5,17 +5,32 @@
 
 @font-face {
   font-family: 'fmEmanee';
-  src: url('./assets/fonts/fmEmanee.ttf') format('truetype');
+  src: url('/assets/fonts/FM Emanee X.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'fmBindumathi';
-  src: url('./assets/fonts/FMBindumathi.ttf') format('truetype');
+  src: url('/assets/fonts/FM Bindumathi.ttf') format('truetype');
   font-weight: normal;
-  font-style: normal;
+  font-style:normal;
 }
+
+@font-face {
+  font-family: 'fmMalithi';
+  src: url('/assets/fonts/FM-Malithi-x.ttf') format('truetype');
+  font-weight: normal;
+  font-style:normal;
+}
+
+@font-face {
+  font-family: 'fmEmanee4u';
+  src: url('/assets/fonts/FM Emanee X.ttf') format('truetype');
+  font-weight: normal;
+  font-style:normal;
+}
+
 
 @tailwind base;
 @tailwind components;

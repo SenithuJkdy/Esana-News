@@ -62,16 +62,69 @@ width: 600px;
 
 /* Custom scrollbar styles */
 /* Custom scrollbar styles */
-.space-y-4::-webkit-scrollbar {
+
+/* .space-y-3::-webkit-scrollbar {
   width: 8px;
+
 }
 
-.space-y-4::-webkit-scrollbar-track {
+.space-y-3::-webkit-scrollbar-track {
   background: #f1f1f1;
-  
 }
 
-.space-y-4::-webkit-scrollbar-thumb {
+.space-y-3::-webkit-scrollbar-thumb {
   background-color: red;
   border: 2px solid #f1f1f1;
+ 
+} */
+
+.main_container{
+  background-color: #c90d0d;
+}
+
+.gray-1{
+  color: rgb(180, 179, 179);
+}
+.gray-2{
+  color: rgb(77, 77, 77);
+}
+
+/* Custom scrollbar styles */
+.space-y-3::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+  height: 8px; /* Height of the scrollbar (for horizontal scrollbars) */
+}
+
+.space-y-3::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+}
+
+.space-y-3::-webkit-scrollbar-thumb {
+  background-color: red; /* Color of the scrollbar thumb */
+  border: 2px solid #f1f1f1; /* Border around the scrollbar thumb */
+  border-radius: 4px; /* Optional: rounded corners for the thumb */
+  height: 78px; /* Set the height of the scrollbar thumb */
+}
+
+.d-flex {
+  display: flex;
+}
+
+.overflow-auto {
+  overflow-x: auto;
+}
+
+.me-3 {
+  margin-right: 5rem; /* Adjust spacing between news items */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.horizontal-scroll-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.horizontal-scroll-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

@@ -8,10 +8,12 @@ export default {
     extend: {
       fontFamily:{
         emanee: ['fmEmanee'],
-        bindumathi: ['fmBindumathi']
+        bindumathi: ['fmBindumathi'],
+        emanee4u:['fmEmanee4u']
       },
       colors:{
-        'gray':'#636363'
+        'gray':'#636363',
+        'gray2':'#787575'
       }
     },
   },
