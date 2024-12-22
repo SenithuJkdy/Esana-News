@@ -92,7 +92,7 @@ width: 600px;
 /* Custom scrollbar styles */
 .space-y-3::-webkit-scrollbar {
   width: 8px; /* Width of the scrollbar */
-  height: 8px; /* Height of the scrollbar (for horizontal scrollbars) */
+  height: 2px; /* Height of the scrollbar (for horizontal scrollbars) */
 }
 
 .space-y-3::-webkit-scrollbar-track {
@@ -100,11 +100,12 @@ width: 600px;
 }
 
 .space-y-3::-webkit-scrollbar-thumb {
-  background-color: red; /* Color of the scrollbar thumb */
+  background-color: #c90d0d; /* Color of the scrollbar thumb */
   border: 2px solid #f1f1f1; /* Border around the scrollbar thumb */
-  border-radius: 4px; /* Optional: rounded corners for the thumb */
   height: 78px; /* Set the height of the scrollbar thumb */
 }
+
+
 
 .d-flex {
   display: flex;
@@ -127,4 +128,9 @@ width: 600px;
 .horizontal-scroll-container {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+.icon-size{
+  height: 38px;
+  width: 38px;
 }

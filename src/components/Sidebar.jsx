@@ -17,21 +17,19 @@ const newsItems = [
   // Add more news items as needed
 ];
 
-const Sidebar = ({newsData}) => (
-  
+const Sidebar = ({ newsData, handleClickItem }) => (
   <div className="col-lg-4 col-xl-4">
     <div className="bg-white rounded-lg shadow-sm p-4">
-    <div className="flex items-center gap-2 mb-4">
-    <div className="w-6 h-6 bg-gray-200 rounded-full">
-      <img src="src/images/chatbubble30.png" alt="" />
-    </div>
-    <span className="text-base font-semibold m-0 text-gray appearance-none">Top News</span>
-  </div>
+      <div className="flex items-center gap-2 mb-4">
+        <div className="w-6 h-6 bg-gray-200 rounded-full">
+          <img src="src/images/chatbubble30.png" alt="" />
+        </div>
+        <span className="text-base font-semibold m-0 text-gray appearance-none">Top News</span>
+      </div>
 
-  <HorizontalNewsContainer newsItems={newsData} /> 
-  
+      <HorizontalNewsContainer newsItems={newsData} />
       <NewsCategories />
-      <NewsList newsData={newsData}/>
+      <NewsList newsData={newsData} handleClickItem={handleClickItem} />
     </div>
   </div>
 );

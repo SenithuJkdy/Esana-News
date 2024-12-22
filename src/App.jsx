@@ -10,43 +10,40 @@ import Header from "./components/Header";
 const App = () => {
 
   const [data,setData] = useState([])
-  const [selectedNews,setSelectedNews] = useState()
+  const [selectedNews,setSelectedNews] = useState(null)
+  
 
 
   useEffect(()=>{
     const fetchData =  async () =>{
       try{
-        // const response = await fetch('http://127.0.0.1:5000/esana/news');
-        const response = await fetch('https://jsonplaceholder.typicode.com/photos?_start=0&_limit=20');
+        const response = await fetch('http://127.0.0.1:5000/esana/news');
+        // const response = await fetch('https://jsonplaceholder.typicode.com/photos?_start=0&_limit=20');
         // 
        
         if(!response.ok){
           console.log("Netwrk error data not fetched")
         }
-        const data = await response.json();
+        const newsData = await response.json();
         
         // console.log(data)
-        if(data){
-          const first = data[0]
-          setData(data)
-          console.log(data)
-          console.log(first)
+        if(newsData){
+          setData(newsData)
+          setSelectedNews(newsData[0])
+          console.log(selectedNews)
+          // console.log(data)
         }
-       
-       
+    
       }catch{}
       
     }
     fetchData()
   },[])
-  
-  const testText = `ඉන්දියාව සහ ශ්‍රී ලංකාව ආර්ථික හා තාක්ෂණ සහයෝගිතා ගිවිසුම (ETCA) පිළිබඳව තවදුරටත් සාකච්ඡා කිරීමට පමණක් ජනාධිපතිවරයා මෑතකදී කළ ඉන්දීය සංචාරයේදී එකඟත්වය පළකළ බව විදේශ කටයුතු අමාත්‍ය විජිත හේරත් පවසනවා.
 
-ඒ අනුව යම් පිරිස් විසින් ඉන්දියාව සහ ශ්‍රී ලංකාව අතර ආර්ථික සහ තාක්ෂණික සහයෝගීතාව පිළිබඳ එකඟතාවය හෙවත් ETCA ගිවිසුමට ආණ්ඩුව අත්සන් කිරීම සිදුකරනවා යැයි වන ප්‍රකාශ අසත්‍ය බවයි අද (20) පැවති මාධ්‍ය හමුවකට එක්වෙමින් අමාත්‍යවරයා සඳහන් කළේ.
+  const handleClickItem = (newsItem)=>{
+      setSelectedNews(newsItem)
+  }
 
-ඉන්දීය සංචාරය සම්බන්ධයෙන් දැනුවත් කිරීමට අද (20) පැවති මාධ්‍ය සාකච්ඡාවේදී විදේශ කටයුතු අමාත්‍ය විජිත හේරත් මේ බව සඳහන් කළා. 
-
-`;
 
   const formatText = (text) => {
     return text
@@ -72,9 +69,10 @@ const App = () => {
       <div className="container-fluid bg-slate-100 mx-4 mt-3 mb-2 border-solid rounded-[33px] w-full overflow-hidden">
         <Header />
         <div className="row">
-          <Sidebar newsData={data}/> {/* Use the Sidebar component */}
+          <Sidebar newsData={data} handleClickItem={handleClickItem}/> {/* Use the Sidebar component */}
           {/* Main Content */}
           <div className="col-lg-8 col-xl-8">
+          {selectedNews && (
             <div className="bg-white rounded-lg shadow-sm pt-1 pl-3 h-full">
               {/* Main Content Flex Container */}
               <div className="main-flex-cont flex gap-5 mb-4 mt-10 ">
@@ -84,7 +82,7 @@ const App = () => {
                   style={{ width: "350px", height: "200px" }}
                 >
                   <img
-                    src="https://helakuru.sgp1.cdn.digitaloceanspaces.com/esana/images/lib/tharka-ttr.jpg"
+                    src={selectedNews.image}
                     alt="main news"
                     className="w-full rounded-lg"
                   />
@@ -92,16 +90,17 @@ const App = () => {
 
                 {/* Title and Meta */}
                 <div className="w-2/3 ">
-                  <h2
-                    className=" text-4xl ml-auto mb-4 line-clamp-4  antialiased"
+                  <h3
+                    className=" text-4xl mr-4 line-clamp-4  antialiased"
                     style={{
                       fontFamily:
                         '"Iskoola Pota", "Noto Sans Sinhala", sans-serif',
                     }}
                   >
-                    දේශපාලනයට ඕනෑ අවංක භාවයයි, අධ්‍යාපන සුදුසුකම් නෙවෙයි -
-                    මහින්ද දේශප්‍රිය 
-                  </h2>
+                    {/* දේශපාලනයට ඕනෑ අවංක භාවයයි, අධ්‍යාපන සුදුසුකම් නෙවෙයි -
+                    මහින්ද දේශප්‍රිය  */}
+                    {selectedNews.title}
+                  </h3>
 
                   {/* Time and Social Share */}
                   <div className="flex items-left gap-2 flex-col text-gray-500">
@@ -112,12 +111,12 @@ const App = () => {
                         style={{ height: "18px", width: "18px" }}
                       />
                       <span className="text-base gray-1 pb-1">
-                        දෙසැ. 12 පෙ.ව. 11:57
+                        දෙසැ. 22 පෙ.ව. 12:59
                       </span>
                     </div>
 
                     {/* Social Share Buttons */}
-                    <div className="flex gap-2 mt-4">
+                    <div className="flex gap-[10px] mt-4 ">
                       <button className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
                         <img
                           src="https://www.helakuru.lk/assets/images/facebook.png"
@@ -139,36 +138,38 @@ const App = () => {
 
                       <div className="relative ml-auto flex items-center mr-28">
                         <img
+                        className="icon-size"
                           src="https://www.helakuru.lk/assets/images/reactions/reaction_like.gif"
-                          style={{ height: "40px", width: "40px" }}
+                       
                           alt=""
                         />
                         <img
-                          className="absolute left-5"
+                          className="absolute left-5 icon-size"
                           src="https://www.helakuru.lk/assets/images/reactions/reaction_haha.gif"
-                          style={{ height: "40px", width: "40px" }}
+                         
                           alt=""
                         />
                         <img
-                          className="absolute left-10"
+                          className="absolute left-10 icon-size"
                           src="https://www.helakuru.lk/assets/images/reactions/reaction_love.gif"
-                          style={{ height: "40px", width: "40px" }}
+                    
                           alt=""
                         />
-                        <span className="absolute left-24 text-gray font-medium">
-                          345
+                        <span className="absolute left-[88px] text-gray "
+                        style={{fontWeight:"445",fontSize:"15px"}}>
+                          111
                         </span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-
+      
               <div className="ml-2">
-                {formatText(testText).map((sentence, index) => (
+                {formatText(selectedNews.description).map((sentence, index) => (
                   <p
                     key={index}
-                    className="text-base font-light text-gray leading-relaxed"
+                    className="text-base font-light text-gray leading-6"
                     style={{
                       fontFamily:
                         '"Iskoola Pota", "Noto Sans Sinhala", sans-serif',
@@ -181,7 +182,9 @@ const App = () => {
                   
                 </p> */}
               </div>
-                  <div className="relative">
+
+              {/* Comment Section Title */}
+                  {/* <div className="relative">
                   <span className=" absolute flex flex-row gap-4 items-center" style={{top:"58px"}}>
                 <img
                   className=""
@@ -191,10 +194,10 @@ const App = () => {
                 />
                 <span className="text-lg font-thin text-gray">මහජන ප්‍රතිචාර</span>
               </span>
-                  </div>
+                  </div> */}
               
             </div>
-          </div>
+          )}</div>
         </div>
       </div>
     </div>
