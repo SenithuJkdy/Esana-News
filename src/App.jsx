@@ -10,26 +10,31 @@ import Header from "./components/Header";
 const App = () => {
 
   const [data,setData] = useState([])
+  const [selectedNews,setSelectedNews] = useState()
 
 
   useEffect(()=>{
     const fetchData =  async () =>{
       try{
-        const response = await fetch('http://127.0.0.1:5000/esana/news');
-        // const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+        // const response = await fetch('http://127.0.0.1:5000/esana/news');
+        const response = await fetch('https://jsonplaceholder.typicode.com/photos?_start=0&_limit=20');
         // 
        
         if(!response.ok){
           console.log("Netwrk error data not fetched")
         }
         const data = await response.json();
-        console.log(data)
-        setData(data)
-    
-      }catch{
-
-      }
-      
+        
+        // console.log(data)
+        if(data){
+          const first = data[0]
+          setData(data)
+          console.log(data)
+          console.log(first)
+        }
+       
+       
+      }catch{}
       
     }
     fetchData()
@@ -53,7 +58,7 @@ const App = () => {
   return (
     // <div className='main_container flex container-fluid h-svh' >
     <div
-      className="main_container flex container-fluid h-svh bg-contain"
+      className="main_container flex container-fluid h-svh bg-contain overflow-hidden"
       style={{
         backgroundImage:
           "URL('https://www.helakuru.lk/assets/images/body-bg.png')",
@@ -64,10 +69,10 @@ const App = () => {
         style={{ width: "40px", height: "40px" }}
         className="relative top-6 left-3 "
       />
-      <div className="container-fluid bg-slate-100 mx-4 mt-3 mb-2 border-solid rounded-[33px]	">
+      <div className="container-fluid bg-slate-100 mx-4 mt-3 mb-2 border-solid rounded-[33px] w-full overflow-hidden">
         <Header />
         <div className="row">
-          <Sidebar /> {/* Use the Sidebar component */}
+          <Sidebar newsData={data}/> {/* Use the Sidebar component */}
           {/* Main Content */}
           <div className="col-lg-8 col-xl-8">
             <div className="bg-white rounded-lg shadow-sm pt-1 pl-3 h-full">
@@ -88,7 +93,7 @@ const App = () => {
                 {/* Title and Meta */}
                 <div className="w-2/3 ">
                   <h2
-                    className=" text-4xl ml-auto mb-4 line-clamp-3 mr-4 antialiased"
+                    className=" text-4xl ml-auto mb-4 line-clamp-4  antialiased"
                     style={{
                       fontFamily:
                         '"Iskoola Pota", "Noto Sans Sinhala", sans-serif',

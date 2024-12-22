@@ -1,11 +1,11 @@
 import React from "react";
 
 const HorizontalNewsItem = ({ item }) => {
-  const truncateTitle = (title) => {
-    if (title.length > 56) {
-      return title.substring(0, 58) + "..."; // Add ellipsis if truncated
+  const truncateTxt = (txt) => {
+    if (txt.length > 56) {
+      return txt.substring(0, 58) + '...'; // Add ellipsis if truncated
     }
-    return title;
+    return txt;
   };
 
   return (
@@ -24,7 +24,7 @@ const HorizontalNewsItem = ({ item }) => {
         </div>
      
         <img
-          src="https://helakuru.sgp1.cdn.digitaloceanspaces.com/esana/images/lib/mahinda-amaraweera-2-archived.jpg"
+          src={item.image}
           alt="news"
           className="object-cover  "
           style={{ width: "180px", height: "100px", borderRadius: "10px" }} // Adjust size as needed
@@ -35,11 +35,11 @@ const HorizontalNewsItem = ({ item }) => {
             className=" mb-2 line-clamp-2 mt-2 text-gray "
             style={{ fontWeight: "440", fontSize: "14px" }}
           >
-            {/* ලුණු මෙට්‍රික්ටොන් 30,000 ක් ආනයනයට කැබිනට් අනුමැතිය */}
-            {truncateTitle(
+            
+            {/* {truncateTitle(
               "දේශීය කිරි නිෂ්පාදනය නැංවීමට උසස් තත්ත්වයේ පුං ගවයින් හා ගව ශුක්‍ර ආනයනය කෙ​රේ"
-            )}
-            {/* {item.title} Use the title from the item */}
+            )} */}
+            {truncateTxt(item.title || "")}  
             {/* {truncateTitle(item.title)} */}
           </p>
         </div>

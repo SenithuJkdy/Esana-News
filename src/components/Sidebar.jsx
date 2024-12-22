@@ -17,7 +17,7 @@ const newsItems = [
   // Add more news items as needed
 ];
 
-const Sidebar = () => (
+const Sidebar = ({newsData}) => (
   
   <div className="col-lg-4 col-xl-4">
     <div className="bg-white rounded-lg shadow-sm p-4">
@@ -28,10 +28,10 @@ const Sidebar = () => (
     <span className="text-base font-semibold m-0 text-gray appearance-none">Top News</span>
   </div>
 
-  <HorizontalNewsContainer newsItems={newsItems} /> 
+  <HorizontalNewsContainer newsItems={newsData} /> 
   
       <NewsCategories />
-      <NewsList />
+      <NewsList newsData={newsData}/>
     </div>
   </div>
 );
