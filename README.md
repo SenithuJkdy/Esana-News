@@ -1,4 +1,4 @@
-# React + Vite
+# Esana UI
 
 <img width="1440" alt="Screenshot 2024-12-22 at 22 41 32" src="https://github.com/user-attachments/assets/602eb230-e913-4edb-83ac-cc4c91d81c46" />
 
